@@ -1,0 +1,223 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org" lang="en" class="light-style layout-menu-fixed" dir="ltr"
+      data-theme="theme-default" data-assets-path="../Admin/assets/"
+      data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <title>Dashboard - Admin PS Store</title>
+    <meta name="description" content=""/>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon"
+    href="/img/Logo/iconTite.png"/>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"/>
+    <!-- Icons. Uncomment required icon fonts -->
+<!--    <link rel="stylesheet" href="../Admin/assets/vendor/fonts/boxicons.css"/>-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../Admin/assets/vendor/css/core.css"
+          class="template-customizer-core-css"/>
+    <link rel="stylesheet"
+          href="../Admin/assets/vendor/css/theme-default.css"
+          class="template-customizer-theme-css"/>
+    <link rel="stylesheet" href="../Admin/assets/css/demo.css"/>
+    <!-- Vendors CSS -->
+    <link rel="stylesheet"
+          href="../Admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet"
+          href="../Admin/assets/vendor/libs/apex-charts/apex-charts.css"/>
+
+    <!-- Helpers -->
+    <script src="../Admin/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../Admin/assets/js/config.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .hidex {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body ng-app="AnhApp">
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu"
+               class="layout-menu menu-vertical menu bg-menu-theme">
+            <div class="app-brand demo mt-3 mb-3">
+                <a href="#!main" class="app-brand-link">
+                    <img class="" th:src="@{/img/Logo/logoCam.png}" alt="asd" height="200px">
+                </a> <a href="javascript:void(0);"
+                        class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a>
+            </div>
+
+            <div class="menu-inner-shadow"></div>
+
+            <ul class="menu-inner py-1">
+                <!-- Dashboard -->
+                <li class="menu-item active">
+                    <a style="background-color: rgba(255,220,186,0.3) !important;color: rgba(235, 147, 7,1) !important;" href="#!main"
+                                                class="menu-link"> <i
+                        class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics" style="color:black !important;" >Dashboard</div>
+                </a></li>
+
+                <!-- Layouts -->
+                <li class="menu-item"><a href="javascript:void(0);"
+                                         class="menu-link menu-toggle"> <i
+                        class="menu-icon tf-icons bx bx-layout"></i>
+                    <div data-i18n="Layouts">Thống kê</div>
+                </a>
+
+                    <ul class="menu-sub">
+                        <li class="menu-item"><a href="#!ThongKeDoanhThu"
+                                                 class="menu-link">
+                            <div data-i18n="Without menu">Thống kê doanh thu</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!ThongKeSanPham"
+                                                 class="menu-link">
+                            <div data-i18n="Without navbar">Thống kê sản phẩm</div>
+                        </a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-header small text-uppercase"><span
+                        class="menu-header-text">Pages</span></li>
+                <li class="menu-item"><a href="javascript:void(0);"
+                                         class="menu-link menu-toggle"> <i
+                        class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <div data-i18n="Account Settings">Quản lý</div>
+                </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item"><a href="#!QuanLyCategory"
+                                                 class="menu-link">
+                            <div data-i18n="Account">Quản lý loại sản phẩm</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLyStyle"
+                                                 class="menu-link">
+                            <div data-i18n="Account">Quản lý phong cách</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLySize"
+                                                 class="menu-link">
+                            <div data-i18n="Account">Quản lý size sản phẩm</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLySanPham"
+                                                 class="menu-link">
+                            <div data-i18n="Notifications">Quản lý sản phẩm</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLyHinhAnh"
+                                                 class="menu-link">
+                            <div data-i18n="Connections">Quản lý hình ảnh</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLyDiscount"
+                                                 class="menu-link">
+                            <div data-i18n="Connections">Quản lý discount</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLyBanner"
+                                                 class="menu-link">
+                            <div data-i18n="Connections">Quản lý banner</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLyVoucher"
+                                                 class="menu-link">
+                            <div data-i18n="Connections">Quản lý voucher</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLyKho"
+                                                 class="menu-link">
+                            <div data-i18n="Connections">Quản lý kho</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!QuanLyDonHang"
+                                                 class="menu-link">
+                            <div data-i18n="Connections">Quản lý đơn hàng</div>
+                        </a></li>
+                        <li class="menu-item"><a href="#!Authority"
+                                                 class="menu-link">
+                            <div data-i18n="Connections">Phân quyển</div>
+                        </a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-header small text-uppercase"><span
+                        class="menu-header-text">Components</span></li>
+                <!-- Cards -->
+                <li class="menu-item"><a href="#!MyProfile" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-collection"></i>
+                    <div data-i18n="Basic">Tài khoản của tôi</div>
+                </a></li>
+                <!-- Cards -->
+                <li class="menu-item" style="position: fixed; bottom: 20px;"><a ng-href="/home"
+                                         class="menu-link"> <i class="menu-icon tf-icons bx bx-arrow-back bx-fade-left"></i>
+                    <div data-i18n="Basic" style="font-size: 20px; font-weight: bold; ">Trang chủ</div>
+                    <box-icon name='arrow-back' animation='tada'></box-icon>
+                </a></li>
+            </ul>
+
+
+        </aside>
+
+
+        <!-- <ng-view class="layout-page"></ng-view> -->
+        <div class="layout-page">
+            <div class="ng-view"></div>
+        </div>
+
+
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="../Admin/JsController/index.js"></script>
+<script src="../Admin/JsController/discount.js"></script>
+<script src="../Admin/JsController/banner.js"></script>
+<script src="../Admin/JsController/Authority.js"></script>
+<script src="../Admin/JsController/voucher.js"></script>
+<script src="../Admin/JsController/category.js"></script>
+<script src="../Admin/JsController/statusorder.js"></script>
+<script src="../Admin/JsController/style.js"></script>
+<script src="../Admin/JsController/size.js"></script>
+<script src="../Admin/JsController/repository.js"></script>
+<script src="../Admin/JsController/product-ctrl.js"></script>
+<script src="../Admin/JsController/images.js"></script>
+<script src="../Admin/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="../Admin/assets/vendor/libs/popper/popper.js"></script>
+<script src="../Admin/assets/vendor/js/bootstrap.js"></script>
+<script
+        src="../Admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="../Admin/assets/vendor/js/menu.js"></script>
+<script src="../Admin/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+<script src="../Admin/assets/js/main.js"></script>
+<script src="../Admin/assets/js/dashboards-analytics.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script th:src="@{/Admin/js/AdminController/ProductChart.js}"></script>
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script th:src="@{/Admin/js/AdminController/IncomePie.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+</body>
+</html>

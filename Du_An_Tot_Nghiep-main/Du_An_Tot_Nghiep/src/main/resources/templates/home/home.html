@@ -1,0 +1,336 @@
+<div xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic (~{::main})}">
+	<main id="main">
+	<!-- Hero Section Begin -->
+	    <section class="hero-section">
+	        <div class="hero-items owl-carousel">
+		        <div th:each="banner, state : ${banners}">
+		        	<div class="single-hero-items set-bg" th:attr="data-setbg='/Admin/assets/img/banner/'+${banner.bannerpath}">
+		                <div class="container">
+		                    <div class="row">
+		                        <div class="col-lg-5">
+		                            <span>T-Shirt, Pants</span>
+		                            <h1>Black friday</h1>
+		                            <p>Siêu ưu đãi giảm giá Black friday</p>
+		                            <a th:href="@{|/product/list|}" class="primary-btn">Shop Now</a>
+		                        </div>
+		                    </div>
+		                    <div class="off-card">
+		                        <h2>Sale <span>50%</span></h2>
+		                    </div>
+		                </div>
+		            </div>
+		            
+		        </div>
+	         
+	        </div>
+	    </section>
+	    <!-- Hero Section End -->
+	
+	    <!-- Banner Section Begin -->
+	    <div class="banner-section spad">
+	        <div class="container-fluid">
+	            <div class="row">
+	                <div class="col-lg-4">
+	                    <div class="single-banner">
+	                        <img src="img/banner-1.jpg" alt="">
+	                        <div class="inner-text">
+								<a th:href="@{|/product/list|}" style="color: #252525;font-weight: bold; cursor: pointer; font-size: 24px; padding: 11px 28px; background: #ffffff" >T-shirt</a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="col-lg-4">
+	                    <div class="single-banner">
+	                        <img src="img/banner-2.jpg" alt="">
+	                        <div class="inner-text">
+								<a th:href="@{|/product/list|}" style="color: #252525;font-weight: bold; cursor: pointer; font-size: 24px; padding: 11px 28px; background: #ffffff" >Outwear</a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="col-lg-4">
+	                    <div class="single-banner">
+	                        <img src="img/banner-3.jpg" alt="">
+	                        <div class="inner-text">
+								<a th:href="@{|/product/list|}" style="color: #252525;font-weight: bold; cursor: pointer; font-size: 24px; padding: 11px 28px; background: #ffffff" >Pants</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Banner Section End -->
+	
+	    <!-- Women Banner Section Begin -->
+	    <section class="women-banner spad">
+	        <div class="container-fluid">
+	            <div class="row">
+	                <div class="col-lg-3">
+	                    <div class="product-large set-bg" data-setbg="img/products/women-large.jpg">
+	                        <h2>Women’s</h2>
+	                        <a href="#">Discover More</a>
+	                    </div>
+	                </div>
+	                <div class="col-lg-8 offset-lg-1"> <!-- Product Tab-->
+						<div class="wrapper1">
+							<div class="tab-wrapper1">
+								<ul class="tabs1">
+									<li class="tab-link1 active" data-tab="1">THANH LỊCH</li>
+									<li class="tab-link1" data-tab="2">DỄ THƯƠNG</li>
+									<li class="tab-link1" data-tab="3">THOẢI MÁI</li>
+									<li class="tab-link1" data-tab="4">GỢI CẢM</li>
+								</ul>
+							</div>
+
+							<div class="content-wrapper1 tab-content">
+								<div id="tab-1" class="tab-content1 active">
+									<div class="owl-carousel product-slider">
+										<div th:each="itemp1 : ${listproduct1}">
+											<div class="product-item ">
+												<div class="pi-pic">
+													<img th:src="@{|/img/products-main/${itemp1.product.mainproductimage}.jpg|}" alt="">
+													<div class="sale">Sale</div>
+													<div class="icon">
+														<i class="icon_heart_alt"></i>
+													</div>
+													<ul>
+														<li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+														<li class="quick-view"><a th:href="@{|/product/detail/${itemp1.product.productid}|}">+ Quick View</a></li>
+														<li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+													</ul>
+												</div>
+												<div class="pi-text">
+													<div class="catagory-name">[[${itemp1.product.category.categoryname}]]</div>
+													<a th:href="@{|/product/detail/${itemp1.product.productid}|}">
+														<h5> [[${itemp1.product.productname}]] </h5>
+													</a>
+													<div class="product-price">
+														[[${#numbers.formatDecimal(itemp1.product.sellingprice, 0, 'COMMA', 0, 'POINT')}]]đ
+														<span>[[${#numbers.formatDecimal(itemp1.product.listedprice, 0, 'COMMA', 0, 'POINT')}]]đ</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="tab-2" class="tab-content1">
+									<div class="owl-carousel product-slider">
+										<div th:each="itemp2 : ${listproduct2}">
+											<div class="product-item ">
+												<div class="pi-pic">
+													<img th:src="@{|/img/products-main/${itemp2.product.mainproductimage}.jpg|}" alt="">
+													<div class="sale">Sale</div>
+													<div class="icon">
+														<i class="icon_heart_alt"></i>
+													</div>
+													<ul>
+														<li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+														<li class="quick-view"><a th:href="@{|/product/detail/${itemp2.product.productid}|}">+ Quick View</a></li>
+														<li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+													</ul>
+												</div>
+												<div class="pi-text">
+													<div class="catagory-name">[[${itemp2.product.category.categoryname}]]</div>
+													<a th:href="@{|/product/detail/${itemp2.product.productid}|}">
+														<h5> [[${itemp2.product.productname}]] </h5>
+													</a>
+													<div class="product-price">
+														[[${#numbers.formatDecimal(itemp2.product.sellingprice, 0, 'COMMA', 0, 'POINT')}]]đ
+														<span>[[${#numbers.formatDecimal(itemp2.product.listedprice, 0, 'COMMA', 0, 'POINT')}]]đ</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="tab-3"class="tab-content1">
+									<div class="owl-carousel product-slider">
+										<div th:each="itemp3 : ${listproduct3}">
+											<div class="product-item ">
+												<div class="pi-pic">
+													<img th:src="@{|/img/products-main/${itemp3.product.mainproductimage}.jpg|}" alt="">
+													<div class="sale">Sale</div>
+													<div class="icon">
+														<i class="icon_heart_alt"></i>
+													</div>
+													<ul>
+														<li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+														<li class="quick-view"><a th:href="@{|/product/detail/${itemp3.product.productid}|}">+ Quick View</a></li>
+														<li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+													</ul>
+												</div>
+												<div class="pi-text">
+													<div class="catagory-name">[[${itemp3.product.category.categoryname}]]</div>
+													<a th:href="@{|/product/detail/${itemp3.product.productid}|}">
+														<h5> [[${itemp3.product.productname}]] </h5>
+													</a>
+													<div class="product-price">
+														[[${#numbers.formatDecimal(itemp3.product.sellingprice, 0, 'COMMA', 0, 'POINT')}]]đ
+														<span>[[${#numbers.formatDecimal(itemp3.product.listedprice, 0, 'COMMA', 0, 'POINT')}]]đ</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="tab-4"class="tab-content1">
+									<div class="owl-carousel product-slider">
+										<div th:each="itemp4 : ${listproduct4}">
+											<div class="product-item ">
+												<div class="pi-pic">
+													<img th:src="@{|/img/products-main/${itemp4.product.mainproductimage}.jpg|}" alt="">
+													<div class="sale">Sale</div>
+													<div class="icon">
+														<i class="icon_heart_alt"></i>
+													</div>
+													<ul>
+														<li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+														<li class="quick-view"><a th:href="@{|/product/detail/${itemp4.product.productid}|}">+ Quick View</a></li>
+														<li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+													</ul>
+												</div>
+												<div class="pi-text">
+													<div class="catagory-name">[[${itemp4.product.category.categoryname}]]</div>
+													<a th:href="@{|/product/detail/${itemp4.product.productid}|}">
+														<h5> [[${itemp4.product.productname}]] </h5>
+													</a>
+													<div class="product-price">
+														[[${#numbers.formatDecimal(itemp4.product.sellingprice, 0, 'COMMA', 0, 'POINT')}]]đ
+														<span>[[${#numbers.formatDecimal(itemp4.product.listedprice, 0, 'COMMA', 0, 'POINT')}]]đ</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+	            </div>
+	        </div>
+	    </section>
+	    <!-- Women Banner Section End -->
+	
+	    <!-- Deal Of The Week Section Begin-->
+	    <section class="deal-of-week set-bg spad" data-setbg="img/time-bg.jpg">
+	        <div class="container">
+	            <div class="col-lg-6 text-center">
+	                <div class="section-title">
+	                    <h2>ƯU ĐÃI CỦA TUẦN</h2>
+	                    <p>Mua hàng loạt sản phẩm chỉ với 200,000đ</p>
+	                    <div class="product-price">
+	                        $35.00
+	                        <span>/ HanBag</span>
+	                    </div>
+	                </div>
+	                <div class="countdown-timer" id="countdown">
+	                    <div class="cd-item">
+	                        <span>56</span>
+	                        <p>Days</p>
+	                    </div>
+	                    <div class="cd-item">
+	                        <span>12</span>
+	                        <p>Hrs</p>
+	                    </div>
+	                    <div class="cd-item">
+	                        <span>40</span>
+	                        <p>Mins</p>
+	                    </div>
+	                    <div class="cd-item">
+	                        <span>52</span>
+	                        <p>Secs</p>
+	                    </div>
+	                </div>
+	                <a href="#" class="primary-btn">Shop Now</a>
+	            </div>
+	        </div>
+	    </section>
+	   
+	    <div class="instagram-photo">
+	        <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
+	            <div class="inside-text">
+	                <i class="ti-instagram"></i>
+	                <h5><a href="#">colorlib_Collection</a></h5>
+	            </div>
+	        </div>
+	        <div class="insta-item set-bg" data-setbg="img/insta-2.jpg">
+	            <div class="inside-text">
+	                <i class="ti-instagram"></i>
+	                <h5><a href="#">colorlib_Collection</a></h5>
+	            </div>
+	        </div>
+	        <div class="insta-item set-bg" data-setbg="img/insta-3.jpg">
+	            <div class="inside-text">
+	                <i class="ti-instagram"></i>
+	                <h5><a href="#">colorlib_Collection</a></h5>
+	            </div>
+	        </div>
+	        <div class="insta-item set-bg" data-setbg="img/insta-4.jpg">
+	            <div class="inside-text">
+	                <i class="ti-instagram"></i>
+	                <h5><a href="#">colorlib_Collection</a></h5>
+	            </div>
+	        </div>
+	        <div class="insta-item set-bg" data-setbg="img/insta-5.jpg">
+	            <div class="inside-text">
+	                <i class="ti-instagram"></i>
+	                <h5><a href="#">colorlib_Collection</a></h5>
+	            </div>
+	        </div>
+	        <div class="insta-item set-bg" data-setbg="img/insta-6.jpg">
+	            <div class="inside-text">
+	                <i class="ti-instagram"></i>
+	                <h5><a href="#">colorlib_Collection</a></h5>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- Instagram Section End -->
+
+	    <!-- Latest Blog Section Begin -->
+	    <section class="latest-blog spad">
+	        <div class="container">
+	            <div class="benefit-items">
+	                <div class="row">
+	                    <div class="col-lg-4">
+	                        <div class="single-benefit">
+	                            <div class="sb-icon">
+	                                <img src="img/icon-1.png" alt="">
+	                            </div>
+	                            <div class="sb-text">
+	                                <h6>MIỄN PHÍ SHIP</h6>
+	                                <p>Cho tất cả đơn hàng lớn hơn 300.000đ </p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4">
+	                        <div class="single-benefit">
+	                            <div class="sb-icon">
+	                                <img src="img/icon-2.png" alt="">
+	                            </div>
+	                            <div class="sb-text">
+	                                <h6>Thời gian giao hàng nhanh</h6>
+	                                <p>Thời gian giao hàng 2-4 ngày</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4">
+	                        <div class="single-benefit">
+	                            <div class="sb-icon">
+	                                <img src="img/icon-1.png" alt="">
+	                            </div>
+	                            <div class="sb-text">
+	                                <h6>Sản phẩm chất lượng</h6>
+	                                <p>Đổi trả sản phẩm nếu có vấn đề</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+	    <!-- Latest Blog Section End -->
+
+
+    </main>
+</div>
